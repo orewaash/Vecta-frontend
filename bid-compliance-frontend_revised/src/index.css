@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Neutral scale — warm paper, not the default cool grey SaaS kit */
+  --color-canvas: #f6f4ef;
+  --color-surface: #ffffff;
+  --color-surface-sunken: #efece4;
+  --color-line: #e3ddd0;
+  --color-line-strong: #cfc7b3;
+  --color-ink: #1c2b2a;
+  --color-ink-muted: #5c6664;
+  --color-ink-faint: #8b9291;
+
+  /* Brand — navy used across Indian e-governance portals (GeM, India.gov.in), plus the
+     tricolour accents used only as thin, restrained strokes, never as the emblem itself */
+  --color-brand: #0b3d62;
+  --color-brand-dark: #082a44;
+  --color-brand-tint: #e8eef3;
+  --color-saffron: #ff9933;
+  --color-india-green: #128153;
+  --color-brass: #a9762c;
+  --color-brass-tint: #f6ecda;
+
+  /* Verdict semantics — used consistently everywhere a verdict appears */
+  --color-pass: #1c7a4c;
+  --color-pass-tint: #e7f4ec;
+  --color-pass-line: #bfe2cc;
+
+  --color-fail: #af2c22;
+  --color-fail-tint: #fbeae8;
+  --color-fail-line: #f0bdb6;
+
+  --color-review: #9c6a0b;
+  --color-review-tint: #faf0dc;
+  --color-review-line: #edd6a1;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Visible, deliberate keyboard focus everywhere — no default browser outline mismatch */
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-brand-tint);
+  color: var(--color-brand-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
